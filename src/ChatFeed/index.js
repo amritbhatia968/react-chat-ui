@@ -53,12 +53,15 @@ var ChatFeed = (function (_super) {
         var group = [];
         var messageNodes = messages.map(function (message, index) {
             group.push(message);
-            if (index === messages.length - 1 || messages[index + 1].id !== message.id) {
-                var messageGroup = group;
-                group = [];
-                return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles }));
-            }
-            return null;
+            // if (index === messages.length - 1 || messages[index + 1].id !== message.id) {
+            //     var messageGroup = group;
+            //     group = [];
+            //     return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles }));
+            // }
+            var messageGroup = group;
+            group = [];
+            return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles }));
+            // return null;
         });
         if (isTyping) {
             messageNodes.push(React.createElement("div", { key: "isTyping", style: __assign({}, styles_1.default.chatbubbleWrapper) },
