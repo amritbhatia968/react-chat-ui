@@ -249,7 +249,7 @@ var ChatBubble = (function (_super) {
                     marginRight: "7px",
                   },
                 },
-                "10:50am"
+                this.props.message.timeStamp
               ),
               React.createElement(
                 "span",
@@ -286,7 +286,7 @@ var ChatBubble = (function (_super) {
                     marginRight: "7px",
                   },
                 },
-                "10:50am"
+                this.props.message.timeStamp
               ),
               svgGlobe
             )
