@@ -5,7 +5,8 @@ var Message = (function () {
         this.id = messageData.id;
         this.message = messageData.message;
         this.senderName = messageData.senderName || undefined;
-        this.timeStamp = messageData.timeStamp
+        this.timeStamp = messageData.timeStamp;
+        this.status = messageData.status;
     }
     return Message;
 }());

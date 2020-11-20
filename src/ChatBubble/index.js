@@ -189,6 +189,47 @@ var ChatBubble = (function (_super) {
       )
     );
 
+    let deliveredStatus;
+    // sent
+    if (this.props.message.status === 20)
+      deliveredStatus = 
+        (React.createElement(
+          "span",
+          { style: { position: "relative" } },
+          svgTick
+        ))
+    // queued
+    else if (this.props.message.status === 10)
+      deliveredStatus = 
+        (React.createElement(
+          "span",
+          { style: { position: "relative", color: "orange" } },
+          "Q"
+        )) 
+    // error
+    else if (this.props.message.status === -1)
+      deliveredStatus = 
+        (React.createElement(
+          "span",
+          { style: { position: "relative", color: "red" } },
+          "E"
+        ))
+    // delivered (30 or nothing)
+    else 
+      deliveredStatus =   
+        React.createElement("span", {}, 
+          React.createElement(
+            "span",
+            { style: { position: "relative" } },
+            svgTick
+          ),
+          React.createElement(
+            "span",
+            { style: { position: "absolute", right: "7px" } },
+            svgTick
+          )
+        )
+        
     return React.createElement(
       "div",
       {
@@ -251,16 +292,8 @@ var ChatBubble = (function (_super) {
                 },
                 this.props.message.timeStamp
               ),
-              React.createElement(
-                "span",
-                { style: { position: "relative" } },
-                svgTick
-              ),
-              React.createElement(
-                "span",
-                { style: { position: "absolute", right: "7px" } },
-                svgTick
-              )
+              deliveredStatus
+              
             )
           : React.createElement(
               "span",
