@@ -195,7 +195,7 @@ var ChatBubble = (function (_super) {
       deliveredStatus = 
         (React.createElement(
           "span",
-          { style: { position: "relative" } },
+          { style: { position: "relative" }, title: `Sent (${this.props.message.price} USD)` },
           svgTick
         ))
     // queued
@@ -203,7 +203,7 @@ var ChatBubble = (function (_super) {
       deliveredStatus = 
         (React.createElement(
           "span",
-          { style: { position: "relative", color: "orange" } },
+          { style: { position: "relative", color: "orange" }, title: `Waiting Confirmation` },
           "Q"
         )) 
     // error
@@ -211,13 +211,13 @@ var ChatBubble = (function (_super) {
       deliveredStatus = 
         (React.createElement(
           "span",
-          { style: { position: "relative", color: "red" } },
+          { style: { position: "relative", color: "red" }, title: `Error` },
           "E"
         ))
     // delivered (30 or nothing)
     else 
       deliveredStatus =   
-        React.createElement("span", {}, 
+        React.createElement("span", { title: `Delivered (${this.props.message.price} USD)` }, 
           React.createElement(
             "span",
             { style: { position: "relative" } },

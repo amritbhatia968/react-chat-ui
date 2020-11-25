@@ -7,6 +7,7 @@ var Message = (function () {
         this.senderName = messageData.senderName || undefined;
         this.timeStamp = messageData.timeStamp;
         this.status = messageData.status;
+        this.price = messageData.price;
     }
     return Message;
 }());
