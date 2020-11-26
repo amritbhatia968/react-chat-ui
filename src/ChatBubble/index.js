@@ -190,32 +190,8 @@ var ChatBubble = (function (_super) {
     );
 
     let deliveredStatus;
-    // sent
-    if (this.props.message.status === 20)
-      deliveredStatus = 
-        (React.createElement(
-          "span",
-          { style: { position: "relative" }, title: `Sent (${this.props.message.price} USD)` },
-          svgTick
-        ))
-    // queued
-    else if (this.props.message.status === 10)
-      deliveredStatus = 
-        (React.createElement(
-          "span",
-          { style: { position: "relative", color: "orange" }, title: `Waiting Confirmation` },
-          "Q"
-        )) 
-    // error
-    else if (this.props.message.status === -1)
-      deliveredStatus = 
-        (React.createElement(
-          "span",
-          { style: { position: "relative", color: "red" }, title: `Error` },
-          "E"
-        ))
-    // delivered (30 or nothing)
-    else 
+    // delivered (30)
+    if (this.props.message.status === 30) 
       deliveredStatus =   
         React.createElement("span", { title: `Delivered (${this.props.message.price} USD)` }, 
           React.createElement(
@@ -229,6 +205,30 @@ var ChatBubble = (function (_super) {
             svgTick
           )
         )
+    // sent
+    else if (this.props.message.status === 20)
+      deliveredStatus = 
+        (React.createElement(
+          "span",
+          { style: { position: "relative" }, title: `Sent (${this.props.message.price} USD)` },
+          svgTick
+        ))
+    // error
+    else if (this.props.message.status === -1)
+      deliveredStatus = 
+        (React.createElement(
+          "span",
+          { style: { position: "relative", color: "red" }, title: `Error` },
+          "E"
+        ))
+    // queued (10 or nothing)
+    else 
+      deliveredStatus = 
+        (React.createElement(
+          "span",
+          { style: { position: "relative", color: "orange" }, title: `Waiting Confirmation` },
+          "Q"
+        )) 
         
     return React.createElement(
       "div",
