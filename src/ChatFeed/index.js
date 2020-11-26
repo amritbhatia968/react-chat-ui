@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
+    __assign = Object.assign || function (t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -56,16 +56,15 @@ var ChatFeed = (function (_super) {
         var messageNodes = messages.map(function (message, index) {
             const d = new Date(message.timeStamp);
             if (currentDate == d.toDateString()) {
-                debugger;
                 // group the messages
                 if (index == messages.length - 1) {
                     group.push(message);
                     const today = new Date()
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
                         toShowInGroup = "Today"
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
                         toShowInGroup = "Yesterday"
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
@@ -78,9 +77,9 @@ var ChatFeed = (function (_super) {
                     const today = new Date()
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
                         toShowInGroup = "Today"
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
                         toShowInGroup = "Yesterday"
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
@@ -97,9 +96,9 @@ var ChatFeed = (function (_super) {
                     const today = new Date()
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
                         toShowInGroup = "Today"
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
                         toShowInGroup = "Yesterday"
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
@@ -133,9 +132,11 @@ var ChatFeed = (function (_super) {
         var inputField = this.props.hasInputField && React.createElement(ChatInput_1.default, null);
         var maxHeight = this.props.maxHeight;
         return (React.createElement("div", { id: "chat-panel", style: styles_1.default.chatPanel },
-            React.createElement("div", { ref: function (c) {
+            React.createElement("div", {
+                ref: function (c) {
                     _this.chat = c;
-                }, className: "chat-history", style: __assign({}, styles_1.default.chatHistory, { maxHeight: maxHeight }) },
+                }, className: "chat-history", style: __assign({}, styles_1.default.chatHistory, { maxHeight: maxHeight })
+            },
                 React.createElement("div", { className: "chat-messages" }, this.renderMessages(this.props.messages))),
             inputField));
     };
