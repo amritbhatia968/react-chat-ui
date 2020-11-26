@@ -6,9 +6,11 @@ export default {
     position: 'relative',
   },
   bubbleGroupHeader: {
-    margin: 0,
-    fontSize: 14,
+    margin: 0,  
+    fontSize: 12,
     fontWeight: '400',
     color: '#999',
+    marginBottom: "5px",
+    textAlign: "center"
   },
 };

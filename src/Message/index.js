@@ -8,6 +8,7 @@ var Message = (function () {
         this.timeStamp = messageData.timeStamp;
         this.status = messageData.status;
         this.price = messageData.price;
+        this.timeToDisplay = messageData.timeToDisplay;
     }
     return Message;
 }());

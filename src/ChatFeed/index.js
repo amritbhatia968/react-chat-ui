@@ -51,8 +51,67 @@ var ChatFeed = (function (_super) {
         var _a = this.props, isTyping = _a.isTyping, bubbleStyles = _a.bubbleStyles, chatBubble = _a.chatBubble, showSenderName = _a.showSenderName;
         var ChatBubble = chatBubble || ChatBubble_1.default;
         var group = [];
+        var currentDate = "";
+        const monthMap = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         var messageNodes = messages.map(function (message, index) {
-            group.push(message);
+            const d = new Date(message.timeStamp);
+            if (currentDate == d.toDateString()) {
+                debugger;
+                // group the messages
+                if (index == messages.length - 1) {
+                    group.push(message);
+                    const today = new Date()
+                    const yesterday = new Date(new Date() - 86400000)
+                    let toShowInGroup = "";
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Today"
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Yesterday"
+                    } else {
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                    }
+                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
+                } else if (currentDate == new Date(messages[index + 1].timeStamp).toDateString()) {
+                    group.push(message);
+                    return null;
+                } else {
+                    const today = new Date()
+                    const yesterday = new Date(new Date() - 86400000)
+                    let toShowInGroup = "";
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Today"
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Yesterday"
+                    } else {
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                    }
+                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
+                }
+            } else {
+                group = [];
+                currentDate = d.toDateString();
+                group.push(message);
+                if (index == messages.length - 1 || currentDate != new Date(messages[index + 1].timeStamp).toDateString()) {
+                    const messageGroup = JSON.parse(JSON.stringify(group))
+                    group = [];
+                    const today = new Date()
+                    const yesterday = new Date(new Date() - 86400000)
+                    let toShowInGroup = "";
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Today"
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Yesterday"
+                    } else {
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                    }
+                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
+                } else return null;
+
+                // group = [];
+                // currentDate = d.toDateString();
+                // group.push(message);
+                // return null;
+            }
             // if (index === messages.length - 1 || messages[index + 1].id !== message.id) {
             //     var messageGroup = group;
             //     group = [];

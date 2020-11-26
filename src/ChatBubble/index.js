@@ -234,7 +234,12 @@ var ChatBubble = (function (_super) {
       "div",
       {
         style: __assign(
-          {},
+          {
+            marginTop: "5px",
+            marginBottom: "5px",
+            overflow: "auto",
+            position: "relative"
+          },
           this.props.message.id === 0
             ? { paddingRight: "15px" }
             : { paddingLeft: "15px" }
@@ -290,7 +295,7 @@ var ChatBubble = (function (_super) {
                     marginRight: "7px",
                   },
                 },
-                this.props.message.timeStamp
+                this.props.message.timeToDisplay
               ),
               deliveredStatus
               
@@ -319,7 +324,7 @@ var ChatBubble = (function (_super) {
                     marginRight: "7px",
                   },
                 },
-                this.props.message.timeStamp
+                this.props.message.timeToDisplay
               ),
               svgGlobe
             )

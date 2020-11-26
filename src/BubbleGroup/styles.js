@@ -6,12 +6,14 @@ exports.default = {
         marginBottom: 10,
         overflow: 'auto',
         position: 'relative',
-    },
-    bubbleGroupHeader: {
-        margin: 0,
-        fontSize: 14,
+      },
+      bubbleGroupHeader: {
+        margin: 0,  
+        fontSize: 12,
         fontWeight: '400',
         color: '#999',
-    },
+        marginBottom: "5px",
+        textAlign: "center"
+      },
 };
 //# sourceMappingURL=styles.js.map
