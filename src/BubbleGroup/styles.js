@@ -6,6 +6,7 @@ exports.default = {
         marginBottom: 10,
         overflow: 'auto',
         position: 'relative',
+        wordBreak: "break-all"
       },
       bubbleGroupHeader: {
         margin: 0,  
