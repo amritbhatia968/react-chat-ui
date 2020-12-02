@@ -13,7 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function (t) {
+    __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
             for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
@@ -56,33 +56,36 @@ var ChatFeed = (function (_super) {
         var messageNodes = messages.map(function (message, index) {
             const d = new Date(message.timeStamp);
             if (currentDate == d.toDateString()) {
-                // group the messages
+                // group the messages according to the date they were sent/received
                 if (index == messages.length - 1) {
+                    // this is the last message..
                     group.push(message);
                     const today = new Date()
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
-                        toShowInGroup = "Today"
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
-                        toShowInGroup = "Yesterday"
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Today " +  group[0].timeToDisplay;
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Yesterday " + group[0].timeToDisplay
                     } else {
-                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + " " + group[0].timeToDisplay;;
                     }
                     return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
                 } else if (currentDate == new Date(messages[index + 1].timeStamp).toDateString()) {
+                    // this is a middle message and will be pushed to the current group of messages
                     group.push(message);
                     return null;
                 } else {
+                    // This is the last message in a a single day..
                     const today = new Date()
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
-                        toShowInGroup = "Today"
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
-                        toShowInGroup = "Yesterday"
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Today " +  group[0].timeToDisplay;
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                        toShowInGroup = "Yesterday " + group[0].timeToDisplay
                     } else {
-                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + " " + group[0].timeToDisplay;
                     }
                     return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
                 }
@@ -96,9 +99,9 @@ var ChatFeed = (function (_super) {
                     const today = new Date()
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
+                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup = "Today"
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear()) {
+                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup = "Yesterday"
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
@@ -111,15 +114,6 @@ var ChatFeed = (function (_super) {
                 // group.push(message);
                 // return null;
             }
-            // if (index === messages.length - 1 || messages[index + 1].id !== message.id) {
-            //     var messageGroup = group;
-            //     group = [];
-            //     return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles }));
-            // }
-            var messageGroup = group;
-            group = [];
-            return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles }));
-            // return null;
         });
         if (isTyping) {
             messageNodes.push(React.createElement("div", { key: "isTyping", style: __assign({}, styles_1.default.chatbubbleWrapper) },
@@ -132,11 +126,9 @@ var ChatFeed = (function (_super) {
         var inputField = this.props.hasInputField && React.createElement(ChatInput_1.default, null);
         var maxHeight = this.props.maxHeight;
         return (React.createElement("div", { id: "chat-panel", style: styles_1.default.chatPanel },
-            React.createElement("div", {
-                ref: function (c) {
+            React.createElement("div", { ref: function (c) {
                     _this.chat = c;
-                }, className: "chat-history", style: __assign({}, styles_1.default.chatHistory, { maxHeight: maxHeight })
-            },
+                }, className: "chat-history", style: __assign({}, styles_1.default.chatHistory, { maxHeight: maxHeight }) },
                 React.createElement("div", { className: "chat-messages" }, this.renderMessages(this.props.messages))),
             inputField));
     };
