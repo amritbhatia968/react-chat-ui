@@ -11,6 +11,7 @@ export default {
     fontWeight: '400',
     color: '#999',
     marginBottom: "5px",
-    textAlign: "center"
+    textAlign: "center",
+    letterSpacing: "0.4px"
   },
 };
