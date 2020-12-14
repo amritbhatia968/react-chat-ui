@@ -66,11 +66,11 @@ var ChatFeed = (function (_super) {
                     if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup =  group[0].timeToDisplay;
                     } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
-                        toShowInGroup = "Yesterday " + group[0].timeToDisplay
+                        toShowInGroup = "Yesterday, " + group[0].timeToDisplay
                     } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
-                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)} ${group[0].timeToDisplay}`
+                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
                     } else {
-                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
                     }
                     return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
                 } else if (currentDate == new Date(messages[index + 1].timeStamp).toDateString()) {
@@ -85,11 +85,11 @@ var ChatFeed = (function (_super) {
                     if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup = group[0].timeToDisplay;
                     } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
-                        toShowInGroup = "Yesterday " + group[0].timeToDisplay
+                        toShowInGroup = "Yesterday, " + group[0].timeToDisplay
                     } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
-                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)} ${group[0].timeToDisplay}`
+                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
                     } else {
-                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
                     }
                     return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
                 }
@@ -106,11 +106,11 @@ var ChatFeed = (function (_super) {
                     if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup = message.timeToDisplay;
                     } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
-                        toShowInGroup = `Yesterday ${message.timeToDisplay}`
+                        toShowInGroup = `Yesterday, ${message.timeToDisplay}`
                     } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
-                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)} ${message.timeToDisplay}`
+                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)}, ${message.timeToDisplay}`
                     } else {
-                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear();
+                        toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + message.timeToDisplay;
                     }
                     return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
                 } else return null;
