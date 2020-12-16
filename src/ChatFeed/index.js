@@ -68,7 +68,7 @@ var ChatFeed = (function (_super) {
                     } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup = "Yesterday, " + group[0].timeToDisplay
                     } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
-                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
+                        toShowInGroup = `${d.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
                     }
@@ -87,7 +87,7 @@ var ChatFeed = (function (_super) {
                     } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup = "Yesterday, " + group[0].timeToDisplay
                     } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
-                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
+                        toShowInGroup = `${d.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
                     }
@@ -108,7 +108,7 @@ var ChatFeed = (function (_super) {
                     } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
                         toShowInGroup = `Yesterday, ${message.timeToDisplay}`
                     } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
-                        toShowInGroup = `${lastMessageTimeDate.toDateString().substr(0, 3)}, ${message.timeToDisplay}`
+                        toShowInGroup = `${d.toDateString().substr(0, 3)}, ${message.timeToDisplay}`
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + message.timeToDisplay;
                     }
