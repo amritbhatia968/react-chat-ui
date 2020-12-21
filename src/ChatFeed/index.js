@@ -53,6 +53,21 @@ var ChatFeed = (function (_super) {
         var group = [];
         var currentDate = "";
         const monthMap = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
+        var moment = require('moment');
+        var REFERENCE = moment(new Date()); 
+        var TODAY = REFERENCE.clone().startOf('day');
+        var YESTERDAY = REFERENCE.clone().subtract(1, 'days').startOf('day');
+        var A_WEEK_OLD = REFERENCE.clone().subtract(6, 'days').startOf('day');
+        function isToday(momentDate) {
+            return moment(momentDate).isSame(TODAY, 'd');
+        }
+        function isYesterday(momentDate) {
+            return moment(momentDate).isSame(YESTERDAY, 'd');
+        }
+        function isWithinAWeek(momentDate) {
+            return moment(momentDate).isAfter(A_WEEK_OLD);
+        }
         var messageNodes = messages.map(function (message, index) {
             const d = new Date(message.timeStamp);
             if (currentDate == d.toDateString()) {
@@ -60,14 +75,12 @@ var ChatFeed = (function (_super) {
                 if (index == messages.length - 1) {
                     // this is the last message..
                     group.push(message);
-                    const today = new Date()
-                    const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    if (isToday(d)) {
                         toShowInGroup =  group[0].timeToDisplay;
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    } else if (isYesterday(d)) {
                         toShowInGroup = "Yesterday, " + group[0].timeToDisplay
-                    } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
+                    } else if (isWithinAWeek(d)) {
                         toShowInGroup = `${d.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
@@ -79,14 +92,12 @@ var ChatFeed = (function (_super) {
                     return null;
                 } else {
                     // This is the last message in a a single day..
-                    const today = new Date()
-                    const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    if (isToday(d)) {
                         toShowInGroup = group[0].timeToDisplay;
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    } else if (isYesterday(d)) {
                         toShowInGroup = "Yesterday, " + group[0].timeToDisplay
-                    } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
+                    } else if (isWithinAWeek(d)) {
                         toShowInGroup = `${d.toDateString().substr(0, 3)}, ${group[0].timeToDisplay}`
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
@@ -103,11 +114,11 @@ var ChatFeed = (function (_super) {
                     const today = new Date()
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
-                    if (today.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    if (isToday(d)) {
                         toShowInGroup = message.timeToDisplay;
-                    } else if (yesterday.getDate() == d.getDate() && today.getMonth() == d.getMonth() && today.getFullYear() == d.getFullYear() ) {
+                    } else if (isYesterday(d)) {
                         toShowInGroup = `Yesterday, ${message.timeToDisplay}`
-                    } else if (d.getTime() > new Date(new Date().setDate(new Date().getDate() - 6)).getTime()) {
+                    } else if (isWithinAWeek(d)) {
                         toShowInGroup = `${d.toDateString().substr(0, 3)}, ${message.timeToDisplay}`
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + message.timeToDisplay;
