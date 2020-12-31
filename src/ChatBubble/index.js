@@ -191,45 +191,103 @@ var ChatBubble = (function (_super) {
 
     let deliveredStatus;
     // delivered (30)
-    if (this.props.message.status === 30) 
-      deliveredStatus =   
-        React.createElement("span", { title: `Delivered (${this.props.message.price} USD)` }, 
-          React.createElement(
-            "span",
-            { style: { position: "relative" } },
-            svgTick
-          ),
-          React.createElement(
-            "span",
-            { style: { position: "absolute", right: "7px" } },
-            svgTick
-          )
+    if (this.props.message.status === 30)
+      deliveredStatus = React.createElement(
+        "span",
+        { title: `Delivered (${this.props.message.price} USD)` },
+        React.createElement(
+          "span",
+          { style: { position: "relative" } },
+          svgTick
+        ),
+        React.createElement(
+          "span",
+          { style: { position: "absolute", right: "7px" } },
+          svgTick
         )
+      );
     // sent
     else if (this.props.message.status === 20)
-      deliveredStatus = 
-        (React.createElement(
-          "span",
-          { style: { position: "relative" }, title: `Sent (${this.props.message.price} USD)` },
-          svgTick
-        ))
+      deliveredStatus = React.createElement(
+        "span",
+        {
+          style: { position: "relative" },
+          title: `Sent (${this.props.message.price} USD)`,
+        },
+        svgTick
+      );
     // error
     else if (this.props.message.status === -1)
-      deliveredStatus = 
-        (React.createElement(
-          "span",
-          { style: { position: "relative", color: "red" }, title: `Error` },
-          "E"
-        ))
+      deliveredStatus = React.createElement(
+        "span",
+        { style: { position: "relative", color: "red" }, title: `Error` },
+        React.createElement(
+          "svg",
+          {
+            style: { zIndex: 999999 },
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "17",
+            height: "16",
+            viewBox: "0 0 41.235 41.235",
+          },
+          React.createElement(
+            "g",
+            {
+              id: "Group_1425",
+              dataName: "Group 1425",
+              transform: "translate(-182.671 -247.671)",
+            },
+            React.createElement(
+              "g",
+              {
+                id: "Group_875",
+                dataName: "Group 875",
+                transform: "translate(-14 310.624)",
+              },
+              React.createElement(
+                "g",
+                {
+                  id: "Group_874",
+                  dataName: "Group 874",
+                },
+                React.createElement(
+                  "g",
+                  {
+                    id: "Group_873",
+                    dataName: "Group 873",
+                  },
+                  React.createElement("rect", {
+                    id: "Rectangle_1737",
+                    dataName: "Rectangle 1737",
+                    width: "41.235",
+                    height: "41.235",
+                    transform: "translate(196.671 -62.953)",
+                    fill: "none",
+                  })
+                )
+              )
+            ),
+
+            React.createElement("path", {
+              fill: "var(--error)",
+              d:
+                "M4048.231,1979.682h-32.224a4,4,0,0,1-3.35-6.186l16.112-24.682a4,4,0,0,1,6.7,0l16.112,24.682a4,4,0,0,1-3.35,6.186Zm-15.756-8.587a2.231,2.231,0,0,0-1.62.6,2.054,2.054,0,0,0-.619,1.524,2.029,2.029,0,0,0,.619,1.516,2.513,2.513,0,0,0,3.255,0,2.184,2.184,0,0,0,0-3.046A2.264,2.264,0,0,0,4032.475,1971.1ZM4030,1954.863l.473,14.034h3.671l.473-14.034Z",
+              transform: "translate(-3829 -1695.682)",
+            })
+          )
+        )
+      );
     // queued (10 or nothing)
-    else 
-      deliveredStatus = 
-        (React.createElement(
-          "span",
-          { style: { position: "relative", color: "orange" }, title: `Waiting Confirmation` },
-          "Q"
-        )) 
-        
+    else
+      deliveredStatus = React.createElement(
+        "span",
+        {
+          style: { position: "relative", color: "orange" },
+          title: `Waiting Confirmation`,
+        },
+        "Q"
+      );
+
     return React.createElement(
       "div",
       {
@@ -238,7 +296,7 @@ var ChatBubble = (function (_super) {
             marginTop: "5px",
             marginBottom: "5px",
             overflow: "auto",
-            position: "relative"
+            position: "relative",
           },
           this.props.message.id === 0
             ? { paddingRight: "15px" }
@@ -298,7 +356,6 @@ var ChatBubble = (function (_super) {
                 this.props.message.timeToDisplay
               ),
               deliveredStatus
-              
             )
           : React.createElement(
               "span",
