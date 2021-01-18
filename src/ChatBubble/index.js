@@ -63,77 +63,77 @@ var ChatBubble = (function (_super) {
     var chatBubbleStyles =
       this.props.message.id === 0
         ? __assign(
-            {},
-            styles_1.default.chatbubble,
-            bubblesCentered ? {} : styles_1.default.chatbubbleOrientationNormal,
-            chatbubble,
-            userBubble
-          )
+          {},
+          styles_1.default.chatbubble,
+          bubblesCentered ? {} : styles_1.default.chatbubbleOrientationNormal,
+          chatbubble,
+          userBubble
+        )
         : __assign(
-            {},
-            styles_1.default.chatbubble,
-            styles_1.default.recipientChatbubble,
-            bubblesCentered
-              ? {}
-              : styles_1.default.recipientChatbubbleOrientationNormal,
-            userBubble,
-            chatbubble
-          );
+          {},
+          styles_1.default.chatbubble,
+          styles_1.default.recipientChatbubble,
+          bubblesCentered
+            ? {}
+            : styles_1.default.recipientChatbubbleOrientationNormal,
+          userBubble,
+          chatbubble
+        );
     var svgYakTail =
       this.props.message.id === 0
         ? // The right message
+        React.createElement(
+          "svg",
+          {
+            style: { position: "absolute", right: "-15px", top: "3px" },
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "21",
+            height: "21",
+            viewBox: "0 0 21 16",
+          },
           React.createElement(
-            "svg",
-            {
-              style: { position: "absolute", right: "-15px", top: "3px" },
-              xmlns: "http://www.w3.org/2000/svg",
-              width: "21",
-              height: "21",
-              viewBox: "0 0 21 16",
-            },
+            "g",
+            {},
             React.createElement(
               "g",
               {},
-              React.createElement(
-                "g",
-                {},
-                React.createElement("path", {
-                  fill: "var(--primary, rgb(252, 191, 0))",
-                  d:
-                    "M6.188 14.956c-2.136-.694-4.233-1.836-6.234-3.396L3.534.545c.796 1.533 2.153 3.8 4.105 5.894 2.212 2.373 4.704 4.02 7.405 4.899 1.618.525 3.33.777 5.087.746a.647.647 0 0 1 .668.567.575.575 0 0 1-.297.582c-1.276.736-3.326 1.719-5.845 2.218-2.864.567-5.713.4-8.47-.495z",
-                })
-              )
+              React.createElement("path", {
+                fill: "var(--primary, rgb(252, 191, 0))",
+                d:
+                  "M6.188 14.956c-2.136-.694-4.233-1.836-6.234-3.396L3.534.545c.796 1.533 2.153 3.8 4.105 5.894 2.212 2.373 4.704 4.02 7.405 4.899 1.618.525 3.33.777 5.087.746a.647.647 0 0 1 .668.567.575.575 0 0 1-.297.582c-1.276.736-3.326 1.719-5.845 2.218-2.864.567-5.713.4-8.47-.495z",
+              })
             )
           )
+        )
         : // The left message
-          React.createElement(
-            "svg",
-            {
-              style: {
-                position: "absolute",
-                left: "-15px",
-                top: "3px",
-                transform: "scaleX(-1)",
-              },
-              xmlns: "http://www.w3.org/2000/svg",
-              width: "21",
-              height: "21",
-              viewBox: "0 0 21 16",
+        React.createElement(
+          "svg",
+          {
+            style: {
+              position: "absolute",
+              left: "-15px",
+              top: "3px",
+              transform: "scaleX(-1)",
             },
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "21",
+            height: "21",
+            viewBox: "0 0 21 16",
+          },
+          React.createElement(
+            "g",
+            {},
             React.createElement(
               "g",
               {},
-              React.createElement(
-                "g",
-                {},
-                React.createElement("path", {
-                  fill: "rgb(242, 242, 242)",
-                  d:
-                    "M6.188 14.956c-2.136-.694-4.233-1.836-6.234-3.396L3.534.545c.796 1.533 2.153 3.8 4.105 5.894 2.212 2.373 4.704 4.02 7.405 4.899 1.618.525 3.33.777 5.087.746a.647.647 0 0 1 .668.567.575.575 0 0 1-.297.582c-1.276.736-3.326 1.719-5.845 2.218-2.864.567-5.713.4-8.47-.495z",
-                })
-              )
+              React.createElement("path", {
+                fill: "rgb(242, 242, 242)",
+                d:
+                  "M6.188 14.956c-2.136-.694-4.233-1.836-6.234-3.396L3.534.545c.796 1.533 2.153 3.8 4.105 5.894 2.212 2.373 4.704 4.02 7.405 4.899 1.618.525 3.33.777 5.087.746a.647.647 0 0 1 .668.567.575.575 0 0 1-.297.582c-1.276.736-3.326 1.719-5.845 2.218-2.864.567-5.713.4-8.47-.495z",
+              })
             )
-          );
+          )
+        );
 
     var svgGlobe = React.createElement(
       "svg",
@@ -285,7 +285,81 @@ var ChatBubble = (function (_super) {
           style: { position: "relative", color: "orange" },
           title: `Waiting Confirmation`,
         },
-        "Q"
+        React.createElement(
+          "svg",
+          {
+            style: { zIndex: 999999, fill: "var(--surface)" },
+            xmlns: "http://www.w3.org/2000/svg",
+            width: "17",
+            height: "11",
+            viewBox: "0 0 41.235 41.235"
+          },
+          React.createElement(
+            "g",
+            {
+              id: "Icons_More", dataName: "Icons / More", transform: "translate(0 0)"
+            },
+            React.createElement(
+              "g",
+              {
+                id: "Group_938",
+                dataName: "Group 938",
+                transform: "translate(-464.697 18.282)",
+              },
+              React.createElement(
+                "g",
+                {
+                  id: "Group_937",
+                  dataName: "Group 937",
+                },
+                React.createElement(
+                  "g",
+                  {
+                    id: "Group_936",
+                    dataName: "Group 936",
+                  },
+                  React.createElement("rect", {
+                    id: "Rectangle_1758",
+                    dataName: "Rectangle 1758",
+                    width: "41.235",
+                    height: "41.235",
+                    transform: "translate(464.697 -18.282)",
+                    fill: "none",
+                  })
+                )
+              )
+            ), React.createElement(
+              "g",
+              {
+                id: "Group_1199", dataName: "Group 1199", transform: "translate(333.56 -455.336) rotate(90)"
+              },
+              React.createElement(
+                "circle",
+                {
+                  id: "Ellipse_530",
+                  dataName: "Ellipse 530",
+                  cx: "3.436", cy: "3.436", r: "3.436", transform: "translate(472.689 299.386)",
+                }),
+              React.createElement(
+                "circle",
+                {
+                  id: "Ellipse_531",
+                  dataName: "Ellipse 531",
+                  cx: "3.436", cy: "3.436", r: "3.436", transform: "translate(472.689 309.695)",
+                }),
+              React.createElement(
+                "circle",
+                {
+                  id: "Ellipse_532",
+                  dataName: "Ellipse 532",
+                  cx: "3.436", cy: "3.436", r: "3.436", transform: "translate(472.689 320.004)",
+                }),
+
+            ),
+
+
+          )
+        )
       );
 
     return React.createElement(
@@ -324,67 +398,67 @@ var ChatBubble = (function (_super) {
         ),
         this.props.message.id === 0
           ? React.createElement(
+            "span",
+            {
+              style: {
+                float: "right",
+                display: "flex",
+                alignItems: "center",
+              },
+            },
+            svgGlobe,
+            React.createElement(
               "span",
               {
                 style: {
-                  float: "right",
-                  display: "flex",
-                  alignItems: "center",
+                  fontSize: "12px",
+                  width: "51px",
+                  height: "16px",
+                  fontFamily: "Roboto",
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  letterSpacing: "0.4px",
+                  lineHeight: "16px",
+                  color:
+                    this.props.message.id === 0
+                      ? "rgb(255, 255, 255)"
+                      : "rgb(153, 153, 153)",
+                  marginLeft: "7px",
+                  marginRight: "7px",
                 },
               },
-              svgGlobe,
-              React.createElement(
-                "span",
-                {
-                  style: {
-                    fontSize: "12px",
-                    width: "51px",
-                    height: "16px",
-                    fontFamily: "Roboto",
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    letterSpacing: "0.4px",
-                    lineHeight: "16px",
-                    color:
-                      this.props.message.id === 0
-                        ? "rgb(255, 255, 255)"
-                        : "rgb(153, 153, 153)",
-                    marginLeft: "7px",
-                    marginRight: "7px",
-                  },
-                },
-                this.props.message.timeToDisplay
-              ),
-              deliveredStatus
-            )
+              this.props.message.timeToDisplay
+            ),
+            deliveredStatus
+          )
           : React.createElement(
+            "span",
+            {
+              style: { float: "left", display: "flex", alignItems: "center" },
+            },
+            React.createElement(
               "span",
               {
-                style: { float: "left", display: "flex", alignItems: "center" },
-              },
-              React.createElement(
-                "span",
-                {
-                  style: {
-                    fontSize: "12px",
-                    width: "51px",
-                    height: "16px",
-                    fontFamily: "Roboto",
-                    fontSize: "12px",
-                    fontWeight: "400",
-                    letterSpacing: "0.4px",
-                    lineHeight: "16px",
-                    color:
-                      this.props.message.id === 0
-                        ? "rgb(255, 255, 255)"
-                        : "rgb(153, 153, 153)",
-                    marginRight: "7px",
-                  },
+                style: {
+                  fontSize: "12px",
+                  width: "51px",
+                  height: "16px",
+                  fontFamily: "Roboto",
+                  fontSize: "12px",
+                  fontWeight: "400",
+                  letterSpacing: "0.4px",
+                  lineHeight: "16px",
+                  color:
+                    this.props.message.id === 0
+                      ? "rgb(255, 255, 255)"
+                      : "rgb(153, 153, 153)",
+                  marginRight: "7px",
                 },
-                this.props.message.timeToDisplay
-              ),
-              svgGlobe
-            )
+              },
+              this.props.message.timeToDisplay
+            ),
+            svgGlobe
+          )
       )
     );
   };
