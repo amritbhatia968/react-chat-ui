@@ -9,6 +9,8 @@ var Message = (function () {
         this.status = messageData.status;
         this.price = messageData.price;
         this.timeToDisplay = messageData.timeToDisplay;
+        this.ErrorMessage =messageData.ErrorMessage;
+        //one change
     }
     return Message;
 }());
