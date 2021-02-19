@@ -43,6 +43,8 @@ exports.default = {
         fontSize: 16,
         fontWeight: '300',
         margin: 0,
+        whiteSpace:'pre-line'
+
     },
 };
 //# sourceMappingURL=styles.js.map
