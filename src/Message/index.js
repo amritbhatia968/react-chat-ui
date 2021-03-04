@@ -10,6 +10,7 @@ var Message = (function () {
         this.price = messageData.price;
         this.timeToDisplay = messageData.timeToDisplay;
         this.ErrorMessage =messageData.ErrorMessage;
+        this.imageUrl=messageData.imageUrl
         //one change
     }
     return Message;

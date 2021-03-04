@@ -362,11 +362,8 @@ var ChatBubble = (function (_super) {
         )
       );
 
-    return React.createElement(
-      "div",
-      {
-        style: __assign(
-          {
+    return React.createElement( "div",{
+        style: __assign( {
             marginTop: "5px",
             marginBottom: "5px",
             overflow: "auto",
@@ -396,12 +393,22 @@ var ChatBubble = (function (_super) {
           },
           this.props.message.message
         ),
+        this.props.message.imageUrl !== "" ? 
+        React.createElement(
+          "img",{
+            src:this.props.message.imageUrl,
+            style: __assign({}, styles_1.default.p, text, {
+              width:"50px",
+              height:"50px"
+            }),
+          }
+        ):
+        null,
         this.props.message.id === 0
           ? React.createElement(
             "span",
             {
               style: {
-                float: "right",
                 display: "flex",
                 alignItems: "center",
               },

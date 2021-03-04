@@ -56,11 +56,8 @@ export default class ChatFeed extends React.Component {
    */
   renderMessages(messages: [Message]) {
     const { isTyping, bubbleStyles, chatBubble, showSenderName } = this.props;
-
     const ChatBubble = chatBubble || DefaultChatBubble;
-
     let group = [];
-
     const messageNodes = messages.map((message, index) => {
       group.push(message);
       // Find diff in message type or no more messages
