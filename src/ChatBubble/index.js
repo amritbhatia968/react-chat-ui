@@ -398,8 +398,8 @@ var ChatBubble = (function (_super) {
           "img",{
             src:this.props.message.imageUrl,
             style: __assign({}, styles_1.default.p, text, {
-              width:"50px",
-              height:"50px"
+              width:"200px",
+              height:"200px"
             }),
           }
         ):
