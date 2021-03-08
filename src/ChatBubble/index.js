@@ -427,10 +427,7 @@ var ChatBubble = (function (_super) {
                   fontWeight: "400",
                   letterSpacing: "0.4px",
                   lineHeight: "16px",
-                  color:
-                    this.props.message.id === 0
-                      ? "rgb(255, 255, 255)"
-                      : "rgb(153, 153, 153)",
+                  color:this.props.message.id === 0? "rgb(255, 255, 255)" : "rgb(153, 153, 153)",
                   marginLeft: "7px",
                   marginRight: "7px",
                 },
@@ -442,7 +439,7 @@ var ChatBubble = (function (_super) {
           : React.createElement(
             "span",
             {
-              style: { float: "left", display: "flex", alignItems: "center" },
+              style: {  display: "flex", alignItems: "center" },
             },
             React.createElement(
               "span",
@@ -456,10 +453,7 @@ var ChatBubble = (function (_super) {
                   fontWeight: "400",
                   letterSpacing: "0.4px",
                   lineHeight: "16px",
-                  color:
-                    this.props.message.id === 0
-                      ? "rgb(255, 255, 255)"
-                      : "rgb(153, 153, 153)",
+                  color:this.props.message.id === 0? "rgb(255, 255, 255)" : "rgb(153, 153, 153)",
                   marginRight: "7px",
                 },
               },
