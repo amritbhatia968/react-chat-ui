@@ -411,6 +411,7 @@ var ChatBubble = (function (_super) {
               style: {
                 display: "flex",
                 alignItems: "center",
+                justifyContent: "flex-end"
               },
             },
             svgGlobe,
