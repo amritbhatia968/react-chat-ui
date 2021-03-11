@@ -48,7 +48,7 @@ var ChatFeed = (function (_super) {
         this.chat.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
     };
     ChatFeed.prototype.renderMessages = function (messages) {
-        var _a = this.props, isTyping = _a.isTyping, bubbleStyles = _a.bubbleStyles, chatBubble = _a.chatBubble, showSenderName = _a.showSenderName;
+        var _a = this.props, isTyping = _a.isTyping, bubbleStyles = _a.bubbleStyles, chatBubble = _a.chatBubble, showSenderName = _a.showSenderName,onChatClick= _a.onChatClick;
         var ChatBubble = chatBubble || ChatBubble_1.default;
         var group = [];
         var currentDate = "";
@@ -85,7 +85,7 @@ var ChatFeed = (function (_super) {
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
                     }
-                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
+                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup , onChatClick: onChatClick}))
                 } else if (currentDate == new Date(messages[index + 1].timeStamp).toDateString()) {
                     // this is a middle message and will be pushed to the current group of messages
                     group.push(message);
@@ -102,7 +102,7 @@ var ChatFeed = (function (_super) {
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + group[0].timeToDisplay;
                     }
-                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
+                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: group, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup, onChatClick: onChatClick }))
                 }
             } else {
                 group = [];
@@ -123,7 +123,7 @@ var ChatFeed = (function (_super) {
                     } else {
                         toShowInGroup = d.getDate() + " " + monthMap[d.getMonth()] + " " + d.getFullYear() + ", " + message.timeToDisplay;
                     }
-                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup }))
+                    return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, when: toShowInGroup ,onChatClick: onChatClick}))
                 } else return null;
             }
         });

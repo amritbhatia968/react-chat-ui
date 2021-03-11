@@ -394,8 +394,12 @@ var ChatBubble = (function (_super) {
           this.props.message.message
         ),
         this.props.message.imageUrl !== "" ? 
+       
         React.createElement(
           "img",{
+            onClick:()=>{
+              this.props.onChatClick(this.props.message.imageUrl)
+            },
             src:this.props.message.imageUrl,
             style: __assign({}, styles_1.default.p, text, {
               width:"200px",
