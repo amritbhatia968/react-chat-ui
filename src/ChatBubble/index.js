@@ -401,10 +401,7 @@ var ChatBubble = (function (_super) {
               this.props.onChatClick(this.props.message.imageUrl)
             },
             src:this.props.message.imageUrl,
-            style: __assign({}, styles_1.default.p, text, {
-              width:"200px",
-              height:"200px"
-            }),
+            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%"}),
           }
         ):
         null,
