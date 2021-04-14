@@ -2,7 +2,7 @@
   "_args": [
     [
       "git+https://github.com/amritbhatia968/react-chat-ui.git",
-      "D:\\ReactCode\\TeamsAppReactPortal"
+      "D:\\Yakchat(NEW)"
     ]
   ],
   "_from": "git+https://github.com/amritbhatia968/react-chat-ui.git",
@@ -24,7 +24,7 @@
   ],
   "_resolved": "git+https://github.com/amritbhatia968/react-chat-ui.git#88bac4a8f9bc46547e58ba05b7496429b5e3db94",
   "_spec": "git+https://github.com/amritbhatia968/react-chat-ui.git",
-  "_where": "D:\\ReactCode\\TeamsAppReactPortal",
+  "_where": "D:\\Yakchat(NEW)",
   "author": {
     "name": "Brandon Mowat"
   },

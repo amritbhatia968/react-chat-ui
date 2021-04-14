@@ -12,8 +12,8 @@ export default class ChatBubble extends React.Component {
     super(props);
   }
   public render() {
-    console.log("MEhak")
-    console.log(this.props.message.imageUrl)
+   
+   
     const { bubblesCentered } = this.props;
     let { bubbleStyles } = this.props;
     bubbleStyles = bubbleStyles || defaultBubbleStyles;

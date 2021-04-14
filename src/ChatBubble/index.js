@@ -79,6 +79,7 @@ var ChatBubble = (function (_super) {
           userBubble,
           chatbubble
         );
+        var isImageLoaded=true;
     var svgYakTail =
       this.props.message.id === 0
         ? // The right message
@@ -393,18 +394,21 @@ var ChatBubble = (function (_super) {
           },
           this.props.message.message
         ),
+      
         this.props.message.imageUrl !== "" ? 
-       
+      
         React.createElement(
           "img",{
             onClick:()=>{
               this.props.onChatClick(this.props.message.imageUrl)
             },
+            
             src:this.props.message.imageUrl,
-            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%"}),
+            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%",minHeight:"400px",maxHeight:"400px",minWidth:"200px"}),
           }
         ):
         null,
+      
         this.props.message.id === 0
           ? React.createElement(
             "span",
