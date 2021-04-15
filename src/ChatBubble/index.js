@@ -390,6 +390,7 @@ var ChatBubble = (function (_super) {
               letterSpacing: "0.5px",
               lineHeight: "24px",
               textAlign: "left",
+              wordBreak:"break-word",
             }),
           },
           this.props.message.message
