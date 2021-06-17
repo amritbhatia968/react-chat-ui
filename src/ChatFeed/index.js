@@ -93,6 +93,8 @@ var ChatFeed = (function (_super) {
                 } else {
                     // This is the last message in a a single day..
                     let toShowInGroup = "";
+                    group.push(message);
+
                     if (isToday(d)) {
                         toShowInGroup = group[0].timeToDisplay;
                     } else if (isYesterday(d)) {

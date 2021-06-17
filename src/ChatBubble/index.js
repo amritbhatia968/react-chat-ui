@@ -405,7 +405,7 @@ var ChatBubble = (function (_super) {
             },
             
             src:this.props.message.imageUrl,
-            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%",minHeight:"400px",maxHeight:"400px",minWidth:"200px"}),
+            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%",minHeight:"400px",maxHeight:"400px",minWidth:"50%",objectFit:"cover",paddingTop:"1%"}),
           }
         ):
         null,
