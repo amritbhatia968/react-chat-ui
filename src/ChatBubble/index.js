@@ -370,14 +370,16 @@ var ChatBubble = (function (_super) {
             overflow: "auto",
             position: "relative",
           },
+          
           this.props.message.id === 0
             ? { paddingRight: "15px" }
             : { paddingLeft: "15px" }
         ),
+        className: "someClass"
       },
       React.createElement(
         "div",
-        { style: { ...chatBubbleStyles, position: "relative" } },
+        { style: { ...chatBubbleStyles, position: "relative" }, },
         svgYakTail,
         React.createElement(
           "p",
@@ -395,19 +397,21 @@ var ChatBubble = (function (_super) {
           },
           this.props.message.message
         ),
-      
-        this.props.message.imageUrl !== "" ? 
-      
+        // console.log("  this.props.message.imageUrl",  this.props.message.imageUrl),
+        this.props.message.imageUrl !== "" ?
+        React.createElement(
+          "span",{
+            style:__assign({}, styles_1.default.p, text,{display:"flex",minHeight:"400px",justifyContent:"center",alignItems:"center"})
+          },
         React.createElement(
           "img",{
             onClick:()=>{
               this.props.onChatClick(this.props.message.imageUrl)
             },
-            
             src:this.props.message.imageUrl,
-            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%",minHeight:"400px",maxHeight:"400px",minWidth:"50%",objectFit:"cover",paddingTop:"1%"}),
+            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%",maxHeight:"400px",minWidth:"50%",objectFit:"cover",paddingTop:"1%"}),
           }
-        ):
+        ) ):
         null,
       
         this.props.message.id === 0
