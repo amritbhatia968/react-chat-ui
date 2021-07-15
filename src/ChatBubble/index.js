@@ -393,6 +393,7 @@ var ChatBubble = (function (_super) {
               lineHeight: "24px",
               textAlign: "left",
               wordBreak:"break-word",
+              fontFamily:"'Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",
             }),
           },
           this.props.message.message
