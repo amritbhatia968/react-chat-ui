@@ -393,12 +393,11 @@ var ChatBubble = (function (_super) {
               lineHeight: "24px",
               textAlign: "left",
               wordBreak:"break-word",
-              fontFamily:"'Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",
+              fontFamily:this.props.message.imageUrl ? this.props.message.message.length === 1 && this.props.message.message !== "☺️" ? "roboto" :"'Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort":"'Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",  
             }),
           },
           this.props.message.message
         ),
-        // console.log("  this.props.message.imageUrl",  this.props.message.imageUrl),
         this.props.message.imageUrl !== "" ?
         React.createElement(
           "span",{
