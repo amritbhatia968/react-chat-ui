@@ -355,7 +355,6 @@ var ChatBubble = (function (_super) {
                   dataName: "Ellipse 532",
                   cx: "3.436", cy: "3.436", r: "3.436", transform: "translate(472.689 320.004)",
                 }),
-
             ),
 
 
@@ -386,14 +385,13 @@ var ChatBubble = (function (_super) {
           {
             style: __assign({}, styles_1.default.p, text, {
               color: this.props.message.id === 0 ? "var(--onPrimary)" : "black",
-            
               fontSize: "16px",
               fontWeight: 400,
               letterSpacing: "0.5px",
               lineHeight: "24px",
               textAlign: "left",
               wordBreak:"break-word",
-              fontFamily:this.props.message.imageUrl ? this.props.message.message.length === 1 && this.props.message.message !== "☺️" ? "roboto" :"'Roboto', 'sans-serif','Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort":"'Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",  
+              fontFamily:this.props.message.imageUrl ? this.props.message.message.length === 1 && this.props.message.message !== "☺️" ? "roboto" :"'roboto', Noto Color Emoji, Segoe UI Emoji, Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort":"'roboto','Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",  
             }),
           },
           this.props.message.message
