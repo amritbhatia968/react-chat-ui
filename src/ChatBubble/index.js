@@ -221,7 +221,7 @@ var ChatBubble = (function (_super) {
     else if (this.props.message.status === -1)
       deliveredStatus = React.createElement(
         "span",
-        { style: { position: "relative", color: "var(--error)" }, title: this.props.message.ErrorMessage },
+        { style: { position: "relative", color: "var(--error)" }, title:`Error Message`},
         React.createElement(
           "svg",
           {
