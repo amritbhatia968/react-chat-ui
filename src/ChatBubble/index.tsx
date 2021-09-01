@@ -19,7 +19,7 @@ export default class ChatBubble extends React.Component {
     bubbleStyles = bubbleStyles || defaultBubbleStyles;
     const { userBubble, chatbubble, text } = bubbleStyles;
     // message.id 0 is reserved for blue
-    const chatBubbleStyles =this.props.message.id === 0? {
+    const chatBubbleStyles =this.props.message?.id === 0? {
             ...styles.chatbubble,
             ...bubblesCentered ? {} : styles.chatbubbleOrientationNormal,
             ...chatbubble,

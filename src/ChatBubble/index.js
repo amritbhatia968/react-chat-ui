@@ -79,7 +79,7 @@ var ChatBubble = (function (_super) {
           userBubble,
           chatbubble
         );
-        var isImageLoaded=true;
+    var isImageLoaded = true;
     var svgYakTail =
       this.props.message.id === 0
         ? // The right message
@@ -221,7 +221,7 @@ var ChatBubble = (function (_super) {
     else if (this.props.message.status === -1)
       deliveredStatus = React.createElement(
         "span",
-        { style: { position: "relative", color: "var(--error)" }, title:this.props.message.ErrorMessage},
+        { style: { position: "relative", color: "var(--error)" }, title: this.props.message.ErrorMessage },
         React.createElement(
           "svg",
           {
@@ -362,20 +362,20 @@ var ChatBubble = (function (_super) {
         )
       );
 
-    return React.createElement( "div",{
-        style: __assign( {
-            marginTop: "5px",
-            marginBottom: "5px",
-            overflow: "auto",
-            position: "relative",
-          },
-          
-          this.props.message.id === 0
-            ? { paddingRight: "15px" }
-            : { paddingLeft: "15px" }
-        ),
-        className: "someClass"
+    return React.createElement("div", {
+      style: __assign({
+        marginTop: "5px",
+        marginBottom: "5px",
+        overflow: "auto",
+        position: "relative",
       },
+
+        this.props.message.id === 0
+          ? { paddingRight: "15px" }
+          : { paddingLeft: "15px" }
+      ),
+      className: "someClass"
+    },
       React.createElement(
         "div",
         { style: { ...chatBubbleStyles, position: "relative" }, },
@@ -390,28 +390,31 @@ var ChatBubble = (function (_super) {
               letterSpacing: "0.5px",
               lineHeight: "24px",
               textAlign: "left",
-              wordBreak:"break-word",
-              fontFamily:this.props.message.imageUrl ? this.props.message.message.length === 1 && this.props.message.message !== "☺️" ? "roboto" :"'roboto', Noto Color Emoji, Segoe UI Emoji, Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort":"'roboto','Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",  
+              wordBreak: "break-word",
+              fontFamily: this.props.message.imageUrl ?
+                this.props.message.message !== null ?
+                  this.props.message.message.length === 1 && this.props.message.message !== "☺️" ?
+                    "roboto" :"'roboto', Noto Color Emoji, Segoe UI Emoji, Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort"                : "'roboto','Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort" : "'roboto','Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",
             }),
           },
           this.props.message.message
         ),
         this.props.message.imageUrl !== "" ?
-        React.createElement(
-          "span",{
-            style:__assign({}, styles_1.default.p, text,{display:"flex",minHeight:"400px",justifyContent:"center",alignItems:"center"})
+          React.createElement(
+            "span", {
+            style: __assign({}, styles_1.default.p, text, { display: "flex", minHeight: "400px", justifyContent: "center", alignItems: "center" })
           },
-        React.createElement(
-          "img",{
-            onClick:()=>{
-              this.props.onChatClick(this.props.message.imageUrl)
-            },
-            src:this.props.message.imageUrl,
-            style: __assign({}, styles_1.default.p, text, {maxWidth:"100%",maxHeight:"400px",minWidth:"50%",objectFit:"cover",paddingTop:"1%"}),
-          }
-        ) ):
-        null,
-      
+            React.createElement(
+              "img", {
+              onClick: () => {
+                this.props.onChatClick(this.props.message.imageUrl)
+              },
+              src: this.props.message.imageUrl,
+              style: __assign({}, styles_1.default.p, text, { maxWidth: "100%", maxHeight: "400px", minWidth: "50%", objectFit: "cover", paddingTop: "1%" }),
+            }
+            )) :
+          null,
+
         this.props.message.id === 0
           ? React.createElement(
             "span",
@@ -435,7 +438,7 @@ var ChatBubble = (function (_super) {
                   fontWeight: "400",
                   letterSpacing: "0.4px",
                   lineHeight: "16px",
-                  color:this.props.message.id === 0? "var(--onPrimary)" : "rgb(153, 153, 153)",
+                  color: this.props.message.id === 0 ? "var(--onPrimary)" : "rgb(153, 153, 153)",
                   marginLeft: "7px",
                   marginRight: "7px",
                 },
@@ -447,7 +450,7 @@ var ChatBubble = (function (_super) {
           : React.createElement(
             "span",
             {
-              style: {  display: "flex", alignItems: "center" },
+              style: { display: "flex", alignItems: "center" },
             },
             React.createElement(
               "span",
@@ -461,7 +464,7 @@ var ChatBubble = (function (_super) {
                   fontWeight: "400",
                   letterSpacing: "0.4px",
                   lineHeight: "16px",
-                  color:this.props.message.id === 0? "var(--onPrimary)" : "rgb(153, 153, 153)",
+                  color: this.props.message.id === 0 ? "var(--onPrimary)" : "rgb(153, 153, 153)",
                   marginRight: "7px",
                 },
               },
