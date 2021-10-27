@@ -77,7 +77,7 @@ var ChatFeed = (function (_super) {
                     group.push(message);
                     let toShowInGroup = "";
                     if (isToday(d)) {
-                        toShowInGroup =  group[0].timeToDisplay;
+                        toShowInGroup = "Today"
                     } else if (isYesterday(d)) {
                         toShowInGroup = "Yesterday, " + group[0].timeToDisplay
                     } else if (isWithinAWeek(d)) {
@@ -96,7 +96,7 @@ var ChatFeed = (function (_super) {
                     group.push(message);
 
                     if (isToday(d)) {
-                        toShowInGroup = group[0].timeToDisplay;
+                        toShowInGroup = "Today"
                     } else if (isYesterday(d)) {
                         toShowInGroup = "Yesterday, " + group[0].timeToDisplay
                     } else if (isWithinAWeek(d)) {
@@ -113,11 +113,13 @@ var ChatFeed = (function (_super) {
                 if (index == messages.length - 1 || currentDate != new Date(messages[index + 1].timeStamp).toDateString()) {
                     const messageGroup = JSON.parse(JSON.stringify(group))
                     group = [];
-                    const today = new Date()
+                    // const today = new Date()
+                    var REFERENCE = moment(new Date()); 
+                    var today = REFERENCE.clone().startOf('day');
                     const yesterday = new Date(new Date() - 86400000)
                     let toShowInGroup = "";
                     if (isToday(d)) {
-                        toShowInGroup = message.timeToDisplay;
+                        toShowInGroup =  `Today`
                     } else if (isYesterday(d)) {
                         toShowInGroup = `Yesterday, ${message.timeToDisplay}`
                     } else if (isWithinAWeek(d)) {

@@ -392,7 +392,7 @@ var ChatBubble = (function (_super) {
               textAlign: "left",
               wordBreak: "break-word",
               fontFamily: this.props.message.imageUrl ?
-                this.props.message.message !== null ?
+                this.props.message.message !== null &&  this.props.message.message !== undefined ? 
                   this.props.message.message.length === 1 && this.props.message.message !== "☺️" ?
                     "roboto" :"'roboto', Noto Color Emoji, Segoe UI Emoji, Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort"                : "'roboto','Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort" : "'roboto','Noto Color Emoji','Segoe UI Emoji', Times, Symbola, Aegyptus, Code1997, Code2001, Code2002, Musica, serif, LastResort",
             }),
